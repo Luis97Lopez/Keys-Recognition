@@ -3,7 +3,8 @@
 % Autores:      Luis Alberto López Romero
 %               Axel López Rodríguez
 % Fecha:        21 de abril del 2021
-% Descripción: 
+% Descripción:  Función que recibe una ruta de un vídeo y devuelve un arreglo
+%               de frames del video.
 
 
 function videoEntrada = read_video(archivoDeVideo)

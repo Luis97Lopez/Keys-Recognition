@@ -3,25 +3,34 @@
 % Autores:      Luis Alberto López Romero
 %               Axel López Rodríguez
 % Fecha:        21 de abril del 2021
-% Descripción: 
+% Descripción:  Recibimos un video con un número de frame y con la respectiva 
+%               máscara que se quiera reconocer.
+%               ---------------------------
+%                       IMPORTANTE:
+%               Este archivo va a tener que ser modificado para que una misma
+%               imagen reciba varias máscaras y a partir de esa imagen imprima
+%               las máscaras que SÍ logró reconocer
 
-function img = process(arrVideo, numFrame)
+function imgRecognized = process(arrVideo, numFrame, pathMascara)
   pkg load image;
   pkg load video;
   
-  
+  % Obtenemos la imagen del escenario
   img = arrVideo(numFrame).frame;
-  img = rgb2gray(img);
-  img = filter_contrast_brightness(img, 2.0, 0);
-  img = filter_negative(img);
   
+  % Cargamos la imagen de la mascara
+  mascara = imread(pathMascara);
 
-  mascara = imread('.\mascaras\mari_1.png');
-  mascara = rgb2gray(mascara);
-  mascara = filter_contrast_brightness(mascara, 2.0, 0);
-  mascara = filter_negative(mascara);
+  % Aplicamos los filtros necesarios.
+  img = apply_filters(img);
+  mascara = apply_filters(mascara);
 
-##  imgRecognized = recognition(img, mascara, 'conv');
-  imgRecognized = recognition(img, mascara, 'corr');
-
-  imshow(imgRecognized);
+  % Reconocemos la máscara en el escenario y obtenemos los puntos
+##  points = recognition(img, mascara, 'conv');
+  points = recognition(img, mascara, 'corr');
+ 
+  % Dibujamos los puntos
+  imgRecognized = draw_points(arrVideo(numFrame).frame, mascara, points);
+  
+  % Mostramos la imagen reconocida
+##  imshow(imgRecognized);
