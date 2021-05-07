@@ -9,7 +9,7 @@
 %               una imagen de tama√±o:
 %                   height X (numeroDeFrames * anchoDeLineas)
 
-function scan(videoEntrada)
+function results = scan(videoEntrada)
   pkg load video;
   
   % Variables modificables
@@ -25,10 +25,10 @@ function scan(videoEntrada)
   coordenadaY         = floor(vidHeight*0.5);
 
   % Calcula la posici√≥n de cada frame en la imagen final.
-  topIdx                = 1:altoDeLineas:(altoDeLineas*(nFrames));
-  bottomIdx             = topIdx + altoDeLineas;
+##  topIdx                = 1:altoDeLineas:(altoDeLineas*(nFrames));
+##  bottomIdx             = topIdx + altoDeLineas;
   
-  fprintf('Slit-scanning processing...\n');
+##  fprintf('Slit-scanning processing...\n');
   
   % Vamos a guardar los resultados de la diferencia de las barras
   results(1:nFrames-1) = 0;
@@ -37,7 +37,7 @@ function scan(videoEntrada)
   prev = videoEntrada(1).frame(coordenadaY:coordenadaY+altoDeLineas, :,:);
   
   % Hacemos un ciclo con los dem·s frames
-  for iFrame       = 2:nFrames;
+  for iFrame       = 2:nFrames
       % Obtenemos el recuadro del iFrame
       actual = videoEntrada(iFrame).frame...
                 (coordenadaY:coordenadaY+altoDeLineas, :,:);
@@ -47,11 +47,8 @@ function scan(videoEntrada)
       
       % Actualizamos el previo frame
       prev = actual;
-end
-
-  % Imprimimos la gr·fica con los resultados
-  plot(1:nFrames-1, results, "g");
+  end
   
-  fprintf('Slit-scanning done!\n');
+##  fprintf('Slit-scanning done!\n');
 
 endfunction

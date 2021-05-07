@@ -14,7 +14,7 @@
 %                             "conv" realizará la convolusión
 %                   gráficas: si se manda un true imprimirá las gráficas
 
-function points = recognition(imagen, mascara, tipo, graficas = false)
+function points = recognition(imagen, mascara, tipo, graficas = true)
   [n m] = size(imagen);
   [nM mM] = size(mascara);
   
@@ -50,7 +50,7 @@ function points = recognition(imagen, mascara, tipo, graficas = false)
 
     % Se aplica la correlación
     reconocimiento = real(ifftshift(ifft2(fImg .* conj(fFiltroCorr) ./ abs(fFiltroCorr))));
-    numPuntos = 3;
+    numPuntos = 1;
     
   else
     imgReconocida = []
@@ -63,8 +63,8 @@ function points = recognition(imagen, mascara, tipo, graficas = false)
   endif
   
   % Obtenemos el punto máximo y sus coordenadas
-  ptoMax = max(max(reconocimiento));
-  [yMax xMax] = find(ptoMax == reconocimiento);
+##  ptoMax = max(max(reconocimiento));
+##  [yMax xMax] = find(ptoMax == reconocimiento);
     
   % Ordenamos a los puntos de mayor a menor
   vectorFiltrado = reshape(reconocimiento, [],1);
@@ -81,5 +81,7 @@ function points = recognition(imagen, mascara, tipo, graficas = false)
       points(i).y = (_y);
       
   end
+    
+##  figure, plot(vectorFiltrado, "g");
 
 end

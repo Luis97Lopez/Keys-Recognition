@@ -22,6 +22,6 @@ function img = draw_points(img, mascara, points)
 ##      color = [0 0 255];
       
       rectangle('Position',[min_x, min_y,mM,nM],'Edgecolor', "green");
-    
+##      set(rectangle, ['Position', 'Edgecolor'], [[min_x, min_y,mM,nM], "green"]); 
   end
 endfunction
