@@ -14,7 +14,7 @@
 %                             "conv" realizará la convolusión
 %                   gráficas: si se manda un true imprimirá las gráficas
 
-function points = recognition(imagen, mascara, tipo, graficas = true)
+function points = recognition(imagen, mascara, tipo, graficas = false)
   [n m] = size(imagen);
   [nM mM] = size(mascara);
   
@@ -23,7 +23,7 @@ function points = recognition(imagen, mascara, tipo, graficas = true)
     % Se aplica el proceso de convolusión
     reconocimiento = imfilter(double(imagen), double(mascara));
     
-    numPuntos = 10;
+    numPuntos = 1;
   elseif(tipo == 'corr')
     % Creamos el filtro de correlación (imagen ampliada).
     missingSizes = [ floor((n - nM)/2), floor((m - mM)/2)];

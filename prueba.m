@@ -17,7 +17,7 @@ function prueba(video)
         reconoce = true;
     elseif reconoce && results(iFrame-1) < medio1
       reconoce = false;
-      img = process(video, iFrame, './mascaras/escenario1/cora_1.png');
+      process(video, iFrame);
     end
     
     if (isempty (im))

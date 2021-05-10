@@ -23,12 +23,6 @@ function results = scan(videoEntrada)
   % La coordenadaY inicial donde se leerá cada barra de cada frame.
   % Caso default se escoge el pixel de la mitad del video.
   coordenadaY         = floor(vidHeight*0.5);
-
-  % Calcula la posición de cada frame en la imagen final.
-##  topIdx                = 1:altoDeLineas:(altoDeLineas*(nFrames));
-##  bottomIdx             = topIdx + altoDeLineas;
-  
-##  fprintf('Slit-scanning processing...\n');
   
   % Vamos a guardar los resultados de la diferencia de las barras
   results(1:nFrames-1) = 0;
@@ -48,7 +42,4 @@ function results = scan(videoEntrada)
       % Actualizamos el previo frame
       prev = actual;
   end
-  
-##  fprintf('Slit-scanning done!\n');
-
 endfunction
