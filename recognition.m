@@ -14,7 +14,7 @@
 %                             "conv" realizará la convolusión
 %                   gráficas: si se manda un true imprimirá las gráficas
 
-function points = recognition(imagen, mascara, tipo, graficas = false)
+function [value, point] = recognition(imagen, mascara, tipo, graficas = false)
   [n m] = size(imagen);
   [nM mM] = size(mascara);
   
@@ -53,7 +53,7 @@ function points = recognition(imagen, mascara, tipo, graficas = false)
     numPuntos = 1;
     
   else
-    imgReconocida = []
+    imgReconocida = [];
     return
   endif
   
@@ -63,24 +63,25 @@ function points = recognition(imagen, mascara, tipo, graficas = false)
   endif
   
   % Obtenemos el punto máximo y sus coordenadas
-##  ptoMax = max(max(reconocimiento));
-##  [yMax xMax] = find(ptoMax == reconocimiento);
-    
-  % Ordenamos a los puntos de mayor a menor
-  vectorFiltrado = reshape(reconocimiento, [],1);
-  vectorFiltrado = sort(vectorFiltrado, 'descend');
-
-  % Creamos la estructura con los puntos que almacenaremos
-  points(1:numPuntos) = struct('x', 0, 'y', 0);
+  point = struct('value',0, 'x', 0, 'y', 0);
+  value = max(max(reconocimiento));
+  [point.y point.x] = find(value == reconocimiento);
   
-  % Para cada punto se le va a imprimir un cuadrado de 3x3 en la imagen
-  for i=1:numPuntos
-
-      [_y, _x] = find(vectorFiltrado(i) == reconocimiento);
-      points(i).x = (_x);
-      points(i).y = (_y);
-      
-  end
+##  % Ordenamos a los puntos de mayor a menor
+##  vectorFiltrado = reshape(reconocimiento, [],1);
+##  vectorFiltrado = sort(vectorFiltrado, 'descend');
+##
+##  % Creamos la estructura con los puntos que almacenaremos
+##  points(1:numPuntos) = struct('x', 0, 'y', 0);
+##  
+##  % Para cada punto se le va a imprimir un cuadrado de 3x3 en la imagen
+##  for i=1:numPuntos
+##
+##      [_y, _x] = find(vectorFiltrado(i) == reconocimiento);
+##      points(i).x = (_x);
+##      points(i).y = (_y);
+##      
+##  end
     
 ##  figure, plot(vectorFiltrado, "g");
 
