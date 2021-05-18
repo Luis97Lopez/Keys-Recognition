@@ -18,16 +18,17 @@ function [value, point] = recognition(imagen, mascara, tipo, graficas = false)
   [n m] = size(imagen);
   [nM mM] = size(mascara);
   
-  
   if(tipo == 'conv')
     % Se aplica el proceso de convolusión
     reconocimiento = imfilter(double(imagen), double(mascara));
     
     numPuntos = 1;
   elseif(tipo == 'corr')
-    % Transformamos nuestra imagen y nuestro filtro al dominio de Fourier.
-    %%fImg = fft2(imagen);
-    %%fFiltroCorr = fft2(filtroCorr);
+  LK = 0.4;
+  
+##  Transformamos nuestra imagen y nuestro filtro al dominio de Fourier.
+  fImg = KLaw_SpaceV(LK, imagen);
+  fFiltroCorr = mascara;
 
     % Se aplica la correlación
     reconocimiento = real(ifftshift(ifft2(fImg .* conj(fFiltroCorr) ./ abs(fFiltroCorr))));
@@ -43,26 +44,7 @@ function [value, point] = recognition(imagen, mascara, tipo, graficas = false)
   endif
   
   % Obtenemos el punto máximo y sus coordenadas
-  point = struct('value',0, 'x', 0, 'y', 0);
+  point = struct('value' , 0, 'x', 0, 'y', 0);
   value = max(max(reconocimiento));
-  [point.y point.x] = find(value == reconocimiento);
-  
-##  % Ordenamos a los puntos de mayor a menor
-##  vectorFiltrado = reshape(reconocimiento, [],1);
-##  vectorFiltrado = sort(vectorFiltrado, 'descend');
-##
-##  % Creamos la estructura con los puntos que almacenaremos
-##  points(1:numPuntos) = struct('x', 0, 'y', 0);
-##  
-##  % Para cada punto se le va a imprimir un cuadrado de 3x3 en la imagen
-##  for i=1:numPuntos
-##
-##      [_y, _x] = find(vectorFiltrado(i) == reconocimiento);
-##      points(i).x = (_x);
-##      points(i).y = (_y);
-##      
-##  end
-    
-##  figure, plot(vectorFiltrado, "g");
-
+  [point.y point.x] = find(value == reconocimiento); 
 end

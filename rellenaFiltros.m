@@ -11,17 +11,17 @@
 
 function img = rellenaFiltros(im)  
     [y, x] =  size(im);  
-    faltanteY = floor((350 - y) / 2);
-    faltanteX = floor((350 - x) / 2);
+    faltanteY = floor((480 - y) / 2);
+    faltanteX = floor((640 - x) / 2);
     img = padarray(im, [faltanteY , faltanteX]);
     [nF mF] = size(img); 
     %% Si el tamaño era impar le va a faltar un renglón de puros zeros
-    if(nF < 350)
+    if(nF < 480)
         img = [img; zeros(1, mF)];
         nF += 1;
     endif    
     % Si el tamaño era impar le va a faltar una columna de puros ceros
-    if(mF < 350)
+    if(mF < 640)
       img = [img, zeros(nF, 1)];
       mF += 1;
     endif    

@@ -39,9 +39,10 @@ function imgRecognized = process(arrVideo, mascaras , numFrame, show=false)
        
     % Reconocemos la máscara en el escenario y obtenemos los puntos
   ##    points = recognition(img, mascara, 'conv');
-      [value, point] = recognition(img, mascara, 'corr');
-   
+      [value, point] = recognition(img, mascara, 'corr');      
+        %%printf("%d\n", point.y);
+        %%printf("%d\n", point.x);
     % Dibujamos los puntos que obtuvimos
       draw_points(arrVideo(numFrame).frame, mascaras(i).size, point, ...
-                  mascaras(i).color, mascaras(i).label);
+                 mascaras(i).color, mascaras(i).label);
   end

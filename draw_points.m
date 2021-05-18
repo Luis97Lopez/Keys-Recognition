@@ -1,8 +1,9 @@
 function draw_points(img, imageSize, points, color, label)
   numPuntos = size(points)(2);
+  %%printf("%d\n", numPuntos);  
   [n m] = size(img);
-  [nM mM] = imageSize;
-  
+  nM = imageSize(1);
+  mM = imageSize(2);
   % Para cada punto se le va a imprimir un cuadrado de 3x3 en la imagen
   for i=1:numPuntos
       _x = points(i).x;

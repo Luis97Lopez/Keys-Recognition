@@ -6,9 +6,9 @@
 % Fecha : 14/05/2021
 
 function [h] = makeSDFX(X,vectorU)
-  d = sqrt(size(X,1));
+  %d = sqrt(size(X,1));
   hx = X; %% Matriz con imagenes en las columnas
   hsdf = hx*inv(hx'*hx)*vectorU; %% Se aplica el filtro sdf
-  h=reshape(hsdf,d,d);
+  h=reshape(hsdf, 640 , 480);
   h=h'; % Convierto el vector HSDF en una matriz
 endfunction
