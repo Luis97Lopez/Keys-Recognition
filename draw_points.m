@@ -1,7 +1,7 @@
-function draw_points(img, mascara, points, color, label)
+function draw_points(img, imageSize, points, color, label)
   numPuntos = size(points)(2);
   [n m] = size(img);
-  [nM mM] = size(mascara);
+  [nM mM] = imageSize;
   
   % Para cada punto se le va a imprimir un cuadrado de 3x3 en la imagen
   for i=1:numPuntos

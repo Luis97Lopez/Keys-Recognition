@@ -25,28 +25,9 @@ function [value, point] = recognition(imagen, mascara, tipo, graficas = false)
     
     numPuntos = 1;
   elseif(tipo == 'corr')
-    % Creamos el filtro de correlación (imagen ampliada).
-    missingSizes = [ floor((n - nM)/2), floor((m - mM)/2)];
-    filtroCorr = padarray(mascara, missingSizes);
-
-    [nF mF] = size(filtroCorr);
-
-    % Si el tamaño era impar le va a faltar un renglón de puros ceros
-    if(nF < n)
-      filtroCorr = [filtroCorr; zeros(1, mF)];
-      nF += 1;
-    endif
-    
-    % Si el tamaño era impar le va a faltar una columna de puros ceros
-    if(mF < m)
-      filtroCorr = [filtroCorr, zeros(nF, 1)];
-      mF += 1;
-    endif
-    
-    
     % Transformamos nuestra imagen y nuestro filtro al dominio de Fourier.
-    fImg = fft2(imagen);
-    fFiltroCorr = fft2(filtroCorr);
+    %%fImg = fft2(imagen);
+    %%fFiltroCorr = fft2(filtroCorr);
 
     % Se aplica la correlación
     reconocimiento = real(ifftshift(ifft2(fImg .* conj(fFiltroCorr) ./ abs(fFiltroCorr))));
@@ -54,7 +35,6 @@ function [value, point] = recognition(imagen, mascara, tipo, graficas = false)
     
   else
     imgReconocida = [];
-    return
   endif
   
   % Si está habilitado muestra las gráficas

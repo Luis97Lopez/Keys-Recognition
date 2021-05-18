@@ -11,12 +11,14 @@
 %               imagen reciba varias máscaras y a partir de esa imagen imprima
 %               las máscaras que SÍ logró reconocer
 
-function imgRecognized = process(arrVideo, numFrame, show=false)
+function imgRecognized = process(arrVideo, mascaras , numFrame, show=false)
+  
+  %% Se cargan los paquetes de video e imagen
   pkg load image;
   pkg load video;
   
   % Obtenemos las máscaras y el número de máscaras
-  mascaras = get_mascaras();
+##  mascaras = get_mascaras();
   
   numMascaras = size(mascaras)(2);
   
@@ -32,28 +34,14 @@ function imgRecognized = process(arrVideo, numFrame, show=false)
   endif
   
   % Ciclo para recorrer cada una de las máscaras
-  for i=1:numMascaras
-    maxPoint = [];
-    maxValue = 0;
-    mascara = [];
-    
-    % Ciclo de todas las máscaras de cada objeto máscara
-    for j=1:mascaras(i).n
-      % obtenemos la máscara
-      mascara = apply_filters(imread(...
-                                strcat(mascaras(i).path, num2str(j), '.png')));
-
-      % Reconocemos la máscara en el escenario y obtenemos los puntos
+  for i=1:numMascaras    
+    mascara = mascaras(i).filter;
+       
+    % Reconocemos la máscara en el escenario y obtenemos los puntos
   ##    points = recognition(img, mascara, 'conv');
       [value, point] = recognition(img, mascara, 'corr');
-      
-      if(value > maxValue)
-        maxPoint = point;
-        maxValue = value;
-      end
-    end
-    
+   
     % Dibujamos los puntos que obtuvimos
-      draw_points(arrVideo(numFrame).frame, mascara, maxPoint, ...
+      draw_points(arrVideo(numFrame).frame, mascaras(i).size, point, ...
                   mascaras(i).color, mascaras(i).label);
   end

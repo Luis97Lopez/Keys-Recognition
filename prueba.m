@@ -1,4 +1,5 @@
 function prueba(video)
+  mascaras = get_mascaras();
   results = scan(video);
   
   medio1 = mean(mean(results));
@@ -17,7 +18,7 @@ function prueba(video)
         reconoce = true;
     elseif reconoce && results(iFrame-1) < medio1
       reconoce = false;
-      process(video, iFrame);
+      process(video, mascaras ,iFrame);
     end
     
     if (isempty (im))
