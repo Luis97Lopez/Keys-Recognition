@@ -18,30 +18,51 @@ pkg load image;
 %% Ciclo para leer las llaves de la mariquita
 for i=1:4
   im = imread(strcat('./mascaras/escenario1/mari_', num2str(i) , '.png'));
-  im = rgb2gray(im);
+  im = apply_filters(im);
   im = rellenaFiltros(im);
   imwrite(im, strcat('./mascaras/escenario1/mari' , num2str(i) , '.png'));
 endfor
 %% Ciclo para leer las llaves del coche
 for i=1:2
   im = imread(strcat('./mascaras/escenario1/car_', num2str(i) , '.png'));
-  im = rgb2gray(im);
+  im = apply_filters(im);
   im = rellenaFiltros(im);
   imwrite(im, strcat('./mascaras/escenario1/car' , num2str(i) , '.png'));
 endfor
 %% Ciclo para leeer las llaves espada
 for i=1:2
   im = imread(strcat('./mascaras/escenario1/espada_', num2str(i) , '.png'));
-  im = rgb2gray(im);
+  im = apply_filters(im);
   im = rellenaFiltros(im);
   imwrite(im, strcat('./mascaras/escenario1/espada' , num2str(i) , '.png'));
 endfor
 %% Ciclo para leer las llaves corazon
 for i=1:4
   im = imread(strcat('./mascaras/escenario1/cora_', num2str(i) , '.png'));
-  im = rgb2gray(im);
+  im = apply_filters(im);
   im = rellenaFiltros(im);
-  imwrite(im, strcat('./mascaras/escenario1/cora_' , num2str(i) , '.png'));
+  imwrite(im, strcat('./mascaras/escenario1/cora' , num2str(i) , '.png'));
 endfor
 %%%%%%%% ESCENARIO 2
 
+%% Ciclo para leer las llaves con un dije
+for i=1:2
+  im = imread(strcat('./mascaras/escenario2/dije_', num2str(i) , '.png'));
+  im = apply_filters(im);
+  im = rellenaFiltros(im);
+  imwrite(im, strcat('./mascaras/escenario2/dije' , num2str(i) , '.png'));
+endfor  
+%%Ciclo para leer las llaves con una foto
+for i=1:1
+  im = imread(strcat('./mascaras/escenario2/foto_', num2str(i) , '.png'));
+  im = apply_filters(im);
+  im = rellenaFiltros(im);
+  imwrite(im, strcat('./mascaras/escenario2/foto' , num2str(i) , '.png'));
+endfor
+%Ciclo para leer las llaves con una usb
+for i=1:1
+  im = imread(strcat('./mascaras/escenario2/usb_', num2str(i) , '.png'));
+  im = apply_filters(im);
+  im = rellenaFiltros(im);
+  imwrite(im, strcat('./mascaras/escenario2/usb' , num2str(i) , '.png'));
+endfor
