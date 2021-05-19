@@ -1,5 +1,9 @@
-function prueba(video)
+function prueba(video, escenario)
+  if(escenario == 1)
   mascaras = get_mascaras();
+  elseif(escenario == 2)
+  mascaras = get_mascaras2();
+  endif
   results = scan(video);
   
   medio1 = mean(mean(results));
