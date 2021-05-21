@@ -15,11 +15,6 @@ function videoEntrada = read_video(archivoDeVideo)
   nFrames             = videoObj.NumberOfFrames
   vidHeight           = videoObj.Height;
   vidWidth            = videoObj.Width;
-  
-  % La coordenadaX inicial donde se leerá cada barra de cada frame.
-  % Caso default se escoge el pixel de la mitad del video.
-  coordenadaX         = uint8(videoObj.Width*0.5);
-
   % Creamos el Arreglo de Frames del video.
   videoEntrada(1:nFrames) = struct('frame', zeros(vidHeight, vidWidth, 3, 'uint8'));
   

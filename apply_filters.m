@@ -3,12 +3,15 @@
 % Autores:      Luis Alberto López Romero
 %               Axel López Rodríguez
 % Fecha:        21 de abril del 2021
-% Descripción:  Aplicaremos los fitlros necesarios para nuestro proyecto.
+% Descripción:  Aplicaremos los filtros necesarios para nuestro proyecto.
 %               -----------------IMPORTANTE--------------------
 
 function img = apply_filters(img)
+  ##  Se convierte la imagen a escala de grises
   img = rgb2gray(img);
+  ## Se aumenta el contraste de la imagen
   img = filter_contrast_brightness(img, 2.0, 0);
+  ##  Se obtiene el negativo de esa imagen
   img = filter_negative(img);
 
 ##  filtro = fspecial("average");
@@ -19,7 +22,7 @@ function img = apply_filters(img)
 ##  filtro = fspecial("unsharp");
 ##  filtro = fspecial("motion");
 ##  filtro = fspecial("sobel");
-  filtro = fspecial("sobel")';
+    filtro = fspecial("sobel")';
 ##  filtro = fspecial("prewitt");
 ##  filtro = fspecial("prewitt")';
 ##  filtro = fspecial("kirsch");

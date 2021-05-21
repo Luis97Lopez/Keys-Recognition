@@ -19,5 +19,6 @@ function [H1]=filtroC_LK(L_K, ruta, Nim)
   endfor
   %% Se crea una matriz llena de 1
   vectorU = double(ones(Nim,1));
+  %% Se manda a llamar a la función makeSDFX
   H1 = makeSDFX(X,vectorU);
 endfunction

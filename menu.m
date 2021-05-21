@@ -1,5 +1,6 @@
   clear all                                                                                                                                 clear all 
   clc
+  writeMascaras;
   fprintf("Leyendo videos...\n");
   videos = read_all_videos();
   fprintf("Se han cargado los videos!!\n");
@@ -45,6 +46,7 @@ endif
 if(running)
   printf("PRESIONE UNA TECLA PARA CONTINUAR\n");
   kbhit();
+  close all;
 endif
 endwhile  
 
