@@ -1,8 +1,8 @@
 % UASLP     FACULTAD DE INGENIERÍA    VISIÓN COMPUTACIONAL
-%                     PROJECT
+% Proyecto : Reconocedor de llaves
 % Autores:      Luis Alberto López Romero
 %               Axel López Rodríguez
-% Fecha:        24 de Mayo del 2021
+% Fecha:        24 de Abril del 2021
 % Descripción:  Este método dibuja sobre la imagen utilizando el punto máximo
 %               del resultado de la convolución, se dibuja un rectángulo del 
 %               tamaño ingresado a la función, se recibe también el color del 

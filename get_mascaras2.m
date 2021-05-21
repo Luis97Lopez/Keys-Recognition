@@ -1,8 +1,16 @@
-% Esta función crea todas las máscaras
+% UASLP     FACULTAD DE INGENIERÍA    VISIÓN COMPUTACIONAL
+% Proyecto : Reconocedor de llaves
+% Autores:      Luis Alberto López Romero
+%               Axel López Rodríguez
+% Fecha:        17 de Mayo del 2021
+% Descripción:  Esta función crea todas las máscaras para el escenario 2, 
+%               regresa el arreglo de máscaras con la información necesaria.
+
 function mascaras = get_mascaras2()  
   L_K = 0.4;
   mascaras(1:3) = struct();
-  
+  ##  Cada estructura guarda el color del rectangulo, el texto a mostrar en el
+  ##  rectangulo, el tamaño de la máscara y el filtro( se aplica leyk directo)
   mascaras(1).color = "blue";
   mascaras(1).label = "Dije";
   mascaras(1).size = size(rgb2gray(imread('./mascaras/escenario2/dije_1.png')));

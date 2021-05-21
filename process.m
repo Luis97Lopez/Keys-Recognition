@@ -1,24 +1,16 @@
 % UASLP     FACULTAD DE INGENIERÍA    VISIÓN COMPUTACIONAL
-%                     PROJECT
+% Proyecto : Reconocedor de llaves
 % Autores:      Luis Alberto López Romero
 %               Axel López Rodríguez
 % Fecha:        21 de abril del 2021
-% Descripción:  Recibimos un video con un número de frame y con la respectiva 
-%               máscara que se quiera reconocer.
-%               ---------------------------
-%                       IMPORTANTE:
-%               Este archivo va a tener que ser modificado para que una misma
-%               imagen reciba varias máscaras y a partir de esa imagen imprima
-%               las máscaras que SÍ logró reconocer
+% Descripción:  Recibimos un video con un número de frame y con las respectivas 
+%               máscaras que se quieran reconocer.
 
 function imgRecognized = process(arrVideo, mascaras , numFrame, show=false)
   
   %% Se cargan los paquetes de video e imagen
   pkg load image;
   pkg load video;
-  
-  % Obtenemos las máscaras y el número de máscaras
-##  mascaras = get_mascaras();
   
   numMascaras = size(mascaras)(2);
   
@@ -33,7 +25,7 @@ function imgRecognized = process(arrVideo, mascaras , numFrame, show=false)
     imshow(arrVideo(numFrame).frame);
   endif
   
-  % Ciclo para recorrer cada una de las máscaras
+  % Ciclo para recorrer cada una de las mï¿½scaras
   for i=1:numMascaras    
     mascara = mascaras(i).filter;
        

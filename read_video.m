@@ -1,5 +1,5 @@
 % UASLP     FACULTAD DE INGENIERÍA    VISIÓN COMPUTACIONAL
-%                     READ VIDEO
+% Proyecto : Reconocedor de llaves
 % Autores:      Luis Alberto López Romero
 %               Axel López Rodríguez
 % Fecha:        21 de abril del 2021

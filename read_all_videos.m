@@ -1,3 +1,10 @@
+% UASLP     FACULTAD DE INGENIERÍA    VISIÓN COMPUTACIONAL
+% Proyecto : Reconocedor de llaves
+% Autores:      Luis Alberto López Romero
+%               Axel López Rodríguez
+% Fecha:        21 de abril del 2021
+% Descripción:  Esa función lee 10 videos y regresa un arreglo de videos.
+
 function videos = read_all_videos()
   pkg load image;
   pkg load video;

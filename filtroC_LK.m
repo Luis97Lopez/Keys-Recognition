@@ -1,13 +1,10 @@
-%   UASLP FACULTAD DE INGENIERÍA 
-%   Examen 2o Parcial. Visión Computacional
-%   Autor: Axel López Rodríguez
-%   Fecha: 05/05/2021
-%   Profesor: Dr. Martínez Pérez Francisco Eduardo
-%   Descripción: La función crea un filtro con varias máscaras
-%   Parametros:
-%   L_K : Número de la ley K
-%   ruta : Ruta donde se encuentran los archivos de las máscaras
-%   Nim : Número de imagenes a procesar
+% UASLP     FACULTAD DE INGENIERÍA    VISIÓN COMPUTACIONAL
+% Proyecto : Reconocedor de llaves
+% Autores:      Luis Alberto López Romero
+%               Axel López Rodríguez
+% Fecha:        21 de abril del 2021
+% Descripción:  Se aplica el filtro de contraste y brillo con los valores que 
+%               recibe la función.
 
 
 function [H1]=filtroC_LK(L_K, ruta, Nim)

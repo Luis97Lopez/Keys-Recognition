@@ -1,5 +1,5 @@
 % UASLP     FACULTAD DE INGENIERÍA    VISIÓN COMPUTACIONAL
-%                     RECOGNITION
+% Proyecto : Reconocedor de llaves
 % Autores:      Luis Alberto López Romero
 %               Axel López Rodríguez
 % Fecha:        21 de abril del 2021
@@ -27,6 +27,7 @@ function [value, point] = recognition(imagen, mascara, tipo, graficas = false)
   LK = 0.4;
   
 ##  Transformamos nuestra imagen y nuestro filtro al dominio de Fourier.
+##  Se aplica la LeyK.
   fImg = KLaw_SpaceV(LK, imagen);
   fFiltroCorr = mascara;
 
@@ -46,5 +47,6 @@ function [value, point] = recognition(imagen, mascara, tipo, graficas = false)
   % Obtenemos el punto máximo y sus coordenadas
   point = struct('value' , 0, 'x', 0, 'y', 0);
   value = max(max(reconocimiento));
+##  Se guarda en la estructura del punto el punto máximo en X e Y.
   [point.y point.x] = find(value == reconocimiento); 
 end

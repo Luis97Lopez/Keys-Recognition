@@ -1,13 +1,11 @@
-% UASLP     FACULTAD DE INGENIER√çA    VISI√ìN COMPUTACIONAL
-%             SLIT SCANNING
-% Autor:        Luis Alberto L√≥pez Romero
-% Fecha:        3 de marzo del 2021
-% Descripci√≥n:  El siguiente c√≥digo realiza el proceso de Slit Scanning 
-%               al video que le indiquemos.
-%               Lo que se hace es tomar de cada Frame una barra de tama√±o que 
-%               se le indique (por default es 3) y pegar todas las barras en 
-%               una imagen de tama√±o:
-%                   height X (numeroDeFrames * anchoDeLineas)
+% UASLP     FACULTAD DE INGENIERÕA    VISI”N COMPUTACIONAL
+% Proyecto : Reconocedor de llaves
+% Autores:        Luis Alberto LÛpez Romero
+%                 Axel LÛpez RodrÌguez
+% Fecha:        26 de marzo del 2021
+% DescripciÛn:  El siguiente cÛdigo realiza el proceso de Slit Scanning 
+%               al video que le indiquemos. Los valores resultados se guardan
+%               en un arreglo de resultados para posteriormente analizarse.
 
 function results = scan(videoEntrada)
   pkg load video;
@@ -20,7 +18,7 @@ function results = scan(videoEntrada)
   vidHeight           = size(videoEntrada(1).frame)(1);
   vidWidth            = size(videoEntrada(1).frame)(2);
   
-  % La coordenadaY inicial donde se leer√° cada barra de cada frame.
+  % La coordenadaY inicial donde se leer· cada barra de cada frame.
   % Caso default se escoge el pixel de la mitad del video.
   coordenadaY         = floor(vidHeight*0.5);
   

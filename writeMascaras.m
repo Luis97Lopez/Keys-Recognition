@@ -8,9 +8,6 @@
 %               Primero se lee la imagen, se aplican los filtros necesarios
 %               posteriormente se convierte al tamaño del video y se escribe
 %               la imagen en la ruta especificada.
-
-
-
 %% Se cargan los paquetes necesarios 
 pkg load video;
 pkg load image;

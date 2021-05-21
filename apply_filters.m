@@ -1,10 +1,9 @@
 % UASLP     FACULTAD DE INGENIERÍA    VISIÓN COMPUTACIONAL
-%                     PROJECT
+% Proyecto : Reconocedor de llaves
 % Autores:      Luis Alberto López Romero
 %               Axel López Rodríguez
 % Fecha:        21 de abril del 2021
 % Descripción:  Aplicaremos los filtros necesarios para nuestro proyecto.
-%               -----------------IMPORTANTE--------------------
 
 function img = apply_filters(img)
   ##  Se convierte la imagen a escala de grises
@@ -22,7 +21,11 @@ function img = apply_filters(img)
 ##  filtro = fspecial("unsharp");
 ##  filtro = fspecial("motion");
 ##  filtro = fspecial("sobel");
+
+## Después de hacer pruebas el filtro de Sobel fue el filtro que nos dio mejores 
+## resultados.
     filtro = fspecial("sobel")';
+    
 ##  filtro = fspecial("prewitt");
 ##  filtro = fspecial("prewitt")';
 ##  filtro = fspecial("kirsch");

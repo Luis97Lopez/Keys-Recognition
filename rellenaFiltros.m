@@ -1,5 +1,5 @@
 %   UASLP FACULTAD DE INGENIERÍA 
-%   Examen 2o Parcial. Visión Computacional - Recuperación
+%   Proyecto : Reconocedor de llaves
 %   Autores:   Luis Alberto López Romero
 %              Axel López Rodríguez
 %   Fecha: 17/05/2021
